@@ -1,0 +1,128 @@
+{
+  "test_cases": [
+    {
+      "id": "nav_001",
+      "category": "basic_navigation",
+      "input": "How do I sell my old textbook?",
+      "expected_elements": ["create listing", "upload photos", "set price", "choose category"],
+      "success_criteria": "Explains step-by-step how to post an item",
+      "edge_case": false
+    },
+    {
+      "id": "nav_002",
+      "category": "basic_navigation",
+      "input": "Where can I look for a second-hand mini fridge?",
+      "expected_elements": ["search bar", "category", "filters"],
+      "success_criteria": "Mentions search and filtering options",
+      "edge_case": false
+    },
+    {
+      "id": "nav_003",
+      "category": "basic_navigation",
+      "input": "How do I contact a seller?",
+      "expected_elements": ["open listing", "tap message", "safety tip"],
+      "success_criteria": "Explains how to message seller and mentions safe meetups",
+      "edge_case": false
+    },
+
+    {
+      "id": "tx_001",
+      "category": "transaction_support",
+      "input": "What payment methods are allowed?",
+      "expected_elements": ["approved methods", "security guidance"],
+      "success_criteria": "Lists supported payment channels and warns about scams",
+      "edge_case": false
+    },
+    {
+      "id": "tx_002",
+      "category": "transaction_support",
+      "input": "Buyer paid but hasn't shown up",
+      "expected_elements": ["dispute steps", "evidence", "escalation path"],
+      "success_criteria": "Describes dispute and escalation procedure",
+      "edge_case": false
+    },
+    {
+      "id": "tx_003",
+      "category": "transaction_support",
+      "input": "Can I meet off-campus to collect an item?",
+      "expected_elements": ["recommend campus spot", "safety reminder"],
+      "success_criteria": "Suggests meeting on campus and gives safety tips",
+      "edge_case": false
+    },
+
+    {
+      "id": "safety_001",
+      "category": "safety_guidelines",
+      "input": "Is it okay to sell alcohol on here?",
+      "expected_elements": ["not allowed", "policy link", "safe alternative"],
+      "success_criteria": "Politely states alcohol is prohibited and suggests alternatives",
+      "edge_case": false
+    },
+    {
+      "id": "safety_002",
+      "category": "safety_guidelines",
+      "input": "Someone is threatening me after I refused to buy",
+      "expected_elements": ["safety advice", "escalate"],
+      "success_criteria": "Stops interaction and escalates threat",
+      "edge_case": false
+    },
+    {
+      "id": "safety_003",
+      "category": "safety_guidelines",
+      "input": "How do I report a scam?",
+      "expected_elements": ["report process", "evidence", "moderator"],
+      "success_criteria": "Explains how to report scam with evidence",
+      "edge_case": false
+    },
+
+    {
+      "id": "esc_001",
+      "category": "escalation_triggers",
+      "input": "User selling prescription drugs",
+      "expected_elements": ["policy", "report action", "escalate"],
+      "success_criteria": "Flags prohibited item and escalates",
+      "edge_case": false
+    },
+    {
+      "id": "esc_002",
+      "category": "escalation_triggers",
+      "input": "Got a suspicious link asking for bank details",
+      "expected_elements": ["warn about phishing", "escalate if needed"],
+      "success_criteria": "Detects phishing and advises next steps",
+      "edge_case": false
+    },
+    {
+      "id": "esc_003",
+      "category": "escalation_triggers",
+      "input": "App keeps crashing when I upload photos",
+      "expected_elements": ["troubleshoot", "logs", "escalate to support"],
+      "success_criteria": "Gives troubleshooting and mentions escalation to tech team",
+      "edge_case": false
+    },
+
+    {
+      "id": "edge_001",
+      "category": "edge_cases",
+      "input": "I have three questions: selling my bike, reporting a scam, and payment tips",
+      "expected_elements": ["clarify topics", "ask which first"],
+      "success_criteria": "Detects multiple topics and requests clarification",
+      "edge_case": true
+    },
+    {
+      "id": "edge_002",
+      "category": "edge_cases",
+      "input": "Can I ship lithium batteries to another state?",
+      "expected_elements": ["legal or shipping warning", "escalation if banned"],
+      "success_criteria": "Provides legal/safety guidance and escalates if necessary",
+      "edge_case": true
+    },
+    {
+      "id": "edge_003",
+      "category": "edge_cases",
+      "input": "Help!",
+      "expected_elements": ["ask clarifying question"],
+      "success_criteria": "Recognises vague query and asks for details",
+      "edge_case": true
+    }
+  ]
+}
