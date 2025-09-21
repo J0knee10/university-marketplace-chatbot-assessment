@@ -44,6 +44,7 @@ flowchart TD
     RunTests -->|Tests fail| Rollback[Rollback / Fix Required]
     Deploy --> Monitor[Monitor Post-Deployment Behaviour]
     Monitor -->|Issue Found| Rollback
+    Monitor -->|No Issue Found| Deployed[Deployed]
 ```
 
 ---
