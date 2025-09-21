@@ -1,22 +1,7 @@
 # Prompt Analysis
 
-### 1. Structure and XML-like tags
-I divided the prompt into `<system>`, `<behavior>`, `<conditional_logic>`, `<output_schema>`, and `<examples>`.  
-This mirrors how we often organise configuration files: each block has a clear purpose and can be parsed or validated automatically.  
-Using XML-style tags makes it obvious where one section ends and another begins, and lets future scripts target only the needed part (e.g., extract `<output_schema>` for testing).
+When I designed `prompt.md`, my main goal was to make the chatbot feel both helpful and safe for students using the marketplace. I started by clearly defining its role: UniMarket Assistant is there to guide users through everyday actions like posting listings, searching for items, or contacting sellers. At the same time, it has to enforce university rules and watch out for risks like scams or prohibited items. That balance—being friendly and approachable while also protective—is reflected in the tone rules and the structured behaviors I included.
 
-### 2. Safety and escalation
-Campus marketplaces involve potential scams, dangerous items, or threatening messages.  
-By giving explicit rules in `<conditional_logic>` and a structured `output_schema`, the bot knows when to escalate to moderators and how to return a machine-readable summary.  
-This prevents silent failures and allows automated tools to log or route serious issues.
+I also put a lot of thought into covering different situations students might run into. The conditional logic helps the chatbot respond differently depending on the problem: from guiding someone through posting a textbook, to warning them about policy violations, to escalating a threat or scam to a human moderator. I added technical support as well, since app crashes or upload issues are common and need to be routed correctly. To make sure responses are consistent and easy to review, I built in a JSON output schema that captures the intent, action, and escalation details.
 
-### 3. Tone and usability
-Under `<behavior>` I defined tone (“clear, friendly, max three paragraphs”) and safe practices (e.g., no direct payment info).  
-The aim is to make responses approachable while keeping transactions secure.
-
-### 4. Automation benefits
-Because the prompt has consistent tags and an embedded JSON schema, an automation script can:
-- Validate that all required tags exist.
-- Check the JSON schema for correctness.
-- Deploy only the `<system>` + `<behavior>` sections as the live prompt while leaving examples behind.  
-This design supports CI/CD for prompt changes, just like infrastructure-as-code.
+Finally, I wanted the assistant to feel grounded in student life, not just like a generic marketplace bot. That’s why I added touches like referencing campus safety tips, student ID use, and events like dorm move-out sales. I also made sure the assistant doesn’t get stuck when a user asks something unclear—it can pause and ask clarifying questions before moving forward. Altogether, the design tries to strike a balance between being practical, safe, and tuned to the specific rhythms of university life.
