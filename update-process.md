@@ -45,6 +45,7 @@ flowchart TD
     Deploy --> Monitor[Monitor Post-Deployment Behaviour]
     Monitor -->|Issue Found| Rollback
     Monitor -->|No Issue Found| Deployed[Deployed]
+    Rollback --> Edit
 ```
 
 ---
