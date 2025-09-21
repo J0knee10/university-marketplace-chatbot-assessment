@@ -9,6 +9,11 @@ import argparse
 import re
 import sys
 
+# ANSI color codes
+GREEN = "\033[92m"  # bright green
+RED = "\033[91m"    # bright red
+RESET = "\033[0m"   # reset to default
+
 def AI_model(prompt, user_input):
     """
     Placeholder for chatbot call.
@@ -54,11 +59,15 @@ def run_tests(prompt_file: str, cases_file: str, show_fails: bool = False) -> in
             missing = validate_response(response, expected)
 
             if missing:
-                print(f"[FAIL] {case_id} – missing: {', '.join(missing)}")
+                print(f"{RED}[FAIL]{RESET} {case_id}")
+                
                 if show_fails:
-                    print(" ↳ Response:", response, "\n")
+                    print(f" ↳ Input: {case_input}")
+                    print(f" ↳ Expected Elements: {expected}")
+                    print(f" ↳ Missing Elements: {missing}")
+                    print(f" ↳ Response: {response}\n")
             else:
-                print(f"[PASS] {case_id}")
+                print(f"{GREEN}[PASS]{RESET} {case_id}")
                 passed += 1
 
         except Exception as e:
